@@ -5,7 +5,7 @@ const h3 = document.querySelector("h3");
 const h4 = document.querySelector("h4");
 const source = document.querySelector("source");
 const audio = document.querySelector("audio");
-const img = document.querySelector("img")
+const img = document.querySelector("img");
 
 button.forEach((button) => {
   button.addEventListener("click", () => {
@@ -50,9 +50,9 @@ function getRandomInt(max) {
 const play = document.querySelector(".fa-play");
 
 play.addEventListener("click", () => {
-  if ((audio.paused)) {
+  if (audio.paused) {
     audio.play();
-    play.classList.replace("fa-play", "fa-pause")
+    play.classList.replace("fa-play", "fa-pause");
   } else {
     audio.pause();
     play.classList.replace("fa-pause", "fa-play");
@@ -60,34 +60,15 @@ play.addEventListener("click", () => {
 });
 
 const arr = ["song2.mp3", "song3.mp3", "song4.mp3"];
-const imgArr = ["pic1.jpg", "pic2.jpg", "pic3.jpg", ]
-const artist = ["Baba Bido", "Lolo Jejdf", "JIee Hiwig"]
-const songName = ["this is a dog", "this is a cat", "this is a chicken"]
-
-
+const imgArr = ["pic1.jpg", "pic2.jpg", "pic3.jpg"];
+const artist = ["Baba Bido", "Lolo Jejdf", "JIee Hiwig"];
+const songName = ["this is a dog", "this is a cat", "this is a chicken"];
 
 const forward = document.querySelector(".fa-forward");
-forward.addEventListener("click", (arr)=>{
-  let songIndex = 0
-  if (arr[songIndex]<3){
-    h3.innerText = songName[+1];
-    h4.innerText = artist[+1];
-    audio.src = arr[+1];
-    img.src = imgArr[+1]; //why not found?
-  }else {
-    h3.innerText = songName[1]
-    h4.innerText = artist [1]
-    audio.src= arr[1]
-    img.src = imgArr[1] 
-  }
-
-
-})
-
-  const backward = document.querySelector(".fa-backward");
-backward.addEventListener("click", () => {
+let index = 0;
+forward.addEventListener("click", () => {
   if (index < arr.length - 1) {
-    index = index - 1;
+    index = index + 1;
     h3.innerText = songName[index];
     h4.innerText = artist[index];
     audio.src = arr[index];
@@ -99,7 +80,15 @@ backward.addEventListener("click", () => {
     img.src = imgArr[index];
   }
 });
-
-}
-)
-
+const backward = document.querySelector(".fa-backward");
+backward.addEventListener("click", () => {
+  if (index > 1) {
+    index = index - 1;
+  } else {
+    index = 0;
+  }
+  h3.innerText = songName[index];
+  h4.innerText = artist[index];
+  audio.src = arr[index];
+  img.src = imgArr[index];
+});
