@@ -65,6 +65,7 @@ const artist = ["Baba Bido", "Lolo Jejdf", "JIee Hiwig"]
 const songName = ["this is a dog", "this is a cat", "this is a chicken"]
 
 
+
 const forward = document.querySelector(".fa-forward");
 forward.addEventListener("click", (arr)=>{
   let songIndex = 0
@@ -82,8 +83,22 @@ forward.addEventListener("click", (arr)=>{
 
 
 })
-const backward = document.querySelector(".fa-backward");
-backward.addEventListener("click", ()=>{
+
+  const backward = document.querySelector(".fa-backward");
+backward.addEventListener("click", () => {
+  if (index < arr.length - 1) {
+    index = index - 1;
+    h3.innerText = songName[index];
+    h4.innerText = artist[index];
+    audio.src = arr[index];
+    img.src = imgArr[index]; //why not found?
+  } else {
+    h3.innerText = songName[index];
+    h4.innerText = artist[index];
+    audio.src = arr[index];
+    img.src = imgArr[index];
+  }
+});
 
 }
 )
